@@ -31,3 +31,8 @@ function same(arr1, arr2){
     return true;
 }
 
+same([1, 2, 3], [1, 4, 9]);
+
+//solution 2
+
+
