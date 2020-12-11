@@ -13,12 +13,43 @@ function anagram(str1, str2) {
   var lookup = {};
 
   for (var i = 0; i < str1.length; i++) {
-    var letter = second[i];
+    var letter = str1[i]; //if letter exists increment, otherwise set to 1 
 
-    if (!lookup[letter]) {
+    lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+  }
+
+  for (var _i = 0; _i < second.length; _i++) {
+    var _letter = second[_i]; //if cant find letter or letter is zero then its not an anagram. 
+
+    if (!lookup[_letter]) {
       return false;
     } else {
-      lookup[letter] -= 1;
+      lookup[_letter] -= 1;
+    }
+  }
+
+  return true;
+}
+
+function validAnagram(str1, str2) {
+  if (str1.length != str2.length) {
+    return false;
+  }
+
+  var lookup = {};
+
+  for (var i = 0; i < str1.length; i++) {
+    var letter = str1[i];
+    lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+  }
+
+  for (var _i2 = 0; _i2 < str2.length; _i2++) {
+    var _letter2 = str2[_i2];
+
+    if (!lookup[_letter2]) {
+      return false;
+    } else {
+      lookup[_letter2] -= 1;
     }
   }
 
