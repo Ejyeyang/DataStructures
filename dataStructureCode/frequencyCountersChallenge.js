@@ -9,8 +9,15 @@ function anagram(str1, str2){
         return false;
     }
 
-    stringHolder = {};
-    for(let i of str1.split("")){
+    const lookup = {};
+    for(let i = 0; i < str1.length; i++){
+        let letter = second[i];
 
+        if(!lookup[letter]){
+            return false;
+        } else {
+            lookup[letter] -= 1;
+        }
     }
+    return true;
 }
