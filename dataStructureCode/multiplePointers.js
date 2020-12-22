@@ -21,3 +21,44 @@ function sumZero(arr){
         }
     }
 }
+
+//right way
+function sumZeroRight(arr){
+    let left = 0;
+    let right = arr.length - 1; 
+    while(left < right){
+        let sum = arr[left] + arr[right];
+        if(sum === 0){
+            return [arr[left], arr[right]];
+        } else if(sum > 0){
+            right--;
+        } else {
+            left ++
+        }
+    }
+}
+
+/*
+Count Uniquie Values 
+implement a function called countUniqueValues 
+which accepts a sorted array, and counts the 
+unique values in the array. There can be negative
+numbers in the array, but it will always be sorted 
+
+//remember that these functions only work with 
+sorted arrays. 
+*/
+function countUniqueValues(arr){
+    if(arr.length === 0){
+        return 0; 
+    }
+    var i = 0; 
+    for(var j = 1; j < arr.length; j++){
+       if(arr[i] !== arr[j]){
+           i++; 
+           arr[i] = arr[j];
+       }
+       console.log(i, j); //to test/check.
+    } 
+    return i + 1; 
+}
