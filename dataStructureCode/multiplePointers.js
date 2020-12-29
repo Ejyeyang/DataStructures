@@ -24,10 +24,10 @@ function sumZero(arr){
 
 //right way
 function sumZeroRight(arr){
-    let left = 0;
-    let right = arr.length - 1; 
-    while(left < right){
-        let sum = arr[left] + arr[right];
+    let left = 0; //gets the array value on the front
+    let right = arr.length - 1; //gets the array value on the end
+    while(left < right){ //while first value is less than last value
+        let sum = arr[left] + arr[right]; 
         if(sum === 0){
             return [arr[left], arr[right]];
         } else if(sum > 0){
@@ -64,5 +64,18 @@ function countUniqueValues(arr){
 }
 
 /* 
-
+Implement a function called countUniqueValues which accepts a SORTED array, and counts
+the unique values in the array. There can be negative numbers in the array, but it will always
+be SORTED
 */
+function countUniqueValuesMyWay(arr){
+    let i = 0;//first value of the array
+    for(let j = 1; j < arr.length; j++){
+        if(arr[i] !== arr[j]){
+            i++;//goes up to next value 
+            arr[i] == arr[j];
+        }
+        console.log(i, j);//check
+    }
+    return i + 1; 
+}
