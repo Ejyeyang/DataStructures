@@ -125,7 +125,7 @@ function maxSubArraySumEfficient(arr, num){
     }
     tempSum = maxSum; 
     for(let i = num; i < arr.length; i++){
-        tempSum = tempSum - arr[i-num] + arr[i];
+        tempSum = tempSum - arr[i-num] + arr[i];//gets rid of first element in array and just adds next one since index starts at 0 for arrays. 
         maxSum = Math.max(maxSum, tempSum);
     }
     return maxSum; 
