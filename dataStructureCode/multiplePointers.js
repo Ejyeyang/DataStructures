@@ -94,12 +94,14 @@ window is created)
     called n. The function should calculate the maximum sum of n consecutive elements in 
     the array
 */
+
+//NOOB WAY
 function maxSubArraySum(arr, num){
     if(num > arr.length){
         return null; 
     }
     let max = -Infinity; //max equal zero would work but since there can be values less than zero we start at negative infinity. 
-    for(let i = 0; i < arr.length - num + 1; i++){
+    for(let i = 0; i < arr.length - num + 1; i++){//- num + 1 is it stops you from going past the length of the array with the num limit. 
         let temp = 0; 
         for(let j = 0; j < num; j++){
             temp += arr[i + j]; 
@@ -109,4 +111,22 @@ function maxSubArraySum(arr, num){
         }
     }
     return max; 
+}
+
+//BEST WAY
+function maxSubArraySumEfficient(arr, num){
+    let maxSum = 0; 
+    let tempSum = 0; 
+    if(arr.length < num){
+        return null;
+    }
+    for(let i = 0; i < num; i++){
+        maxSum += arr[i];
+    }
+    tempSum = maxSum; 
+    for(let i = num; i < arr.length; i++){
+        tempSum = tempSum - arr[i-num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum; 
 }
